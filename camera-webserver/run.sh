@@ -15,13 +15,13 @@ FFSERVER_CONF=/data/$(cat $CONFIG_PATH | jq -r '.ffserver_conf')
 
 # check if ffserver path configuration exists
 if [ ! -f "$FFSERVER_CONF" ]; then
-    echo "[ERR] Refer to documentation for creating a ffserver.conf file!"
+    echo "[ERR] Refer to documentation for creating a ffserver.conf ($FFSERVER_CONF) file!"
     exit 1
 fi
 
 # check if feed path configuration exists
 if [ ! -f "$FEED_FILE" ]; then
-    echo "[ERR] Refer to documentation for creating a feeds.json file!"
+    echo "[ERR] Refer to documentation for creating a feeds.json ($FEED_FILE) file!"
     exit 1
 fi
 
