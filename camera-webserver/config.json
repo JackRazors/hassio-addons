@@ -9,7 +9,6 @@
   "arch": ["amd64"],
   "map": ["share"],
   "ports": {
-    "554/tcp": 554,
     "8090/tcp": 8090
   },
   "webui": "http://[HOST]:[PORT:8090]",
