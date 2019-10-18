@@ -9,9 +9,10 @@
   "arch": ["amd64"],
   "map": ["share"],
   "ports": {
-    "6000/tcp": 6000
+    "554/tcp": 554,
+    "8090/tcp": 8090
   },
-  "webui": "http://[HOST]:[PORT:6000]",
+  "webui": "http://[HOST]:[PORT:8090]",
   "options": {
     "feed_file": "feeds.json",
     "ffserver_conf": "ffserver.conf"

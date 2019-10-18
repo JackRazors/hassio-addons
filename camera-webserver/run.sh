@@ -10,8 +10,8 @@ if [ ! -f "$CONFIG_PATH" ]; then
 fi
 
 # todo, get these from the config options.json
-FEED_FILE=/data/$(cat $CONFIG_PATH | jq -r '.feed_file')
-FFSERVER_CONF=/data/$(cat $CONFIG_PATH | jq -r '.ffserver_conf')
+FEED_FILE=/share/$(cat $CONFIG_PATH | jq -r '.feed_file')
+FFSERVER_CONF=/share/$(cat $CONFIG_PATH | jq -r '.ffserver_conf')
 
 # check if ffserver path configuration exists
 if [ ! -f "$FFSERVER_CONF" ]; then
