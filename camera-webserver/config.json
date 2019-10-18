@@ -9,7 +9,7 @@
   "arch": ["amd64"],
   "map": ["share"],
   "ports": {
-    "6000/tcp": 6000,
+    "6000/tcp": 6000
   },
   "options": {
     "feed_file": "feeds.json",
