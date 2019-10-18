@@ -1,0 +1,24 @@
+{
+  "name": "JackRazors FFMPEG Camera Webserver",
+  "version": "0.0.1",
+  "slug": "camera_webserver",
+  "description": "Uses ffmpeg and ffserver to take several source feeds and resize them down to something more useable for embedded devices such as the Honeywell Tuxedo touch.  These devices don't always support higher resolution video feeds!  ffserver listens on port TCP/6000.",
+  "url": "https://github.com/jackrazors/hassio-addons/",
+  "startup": "application",
+  "boot": "auto",
+  "arch": ["amd64"],
+  "map": ["share"],
+  "ports": {
+    "6000/tcp": 6000,
+  },
+  "options": {
+    "feed_file": "feeds.json",
+    "ffserver_conf": "ffserver.conf"
+  },
+  "schema": {
+    "feed_file": "str",
+    "ffserver_conf": "str"
+  },
+  "webui": "http://[HOST]:[PORT:6000]",
+  "image": "jackrazors/ha-addons"
+}
