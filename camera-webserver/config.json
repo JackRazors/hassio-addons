@@ -1,6 +1,6 @@
 {
   "name": "RTSP Webserver",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "slug": "camera_webserver",
   "description": "Uses ffmpeg and ffserver to take several source feeds and resize them down to something more useable (as specified in feeds.json).  Useful for embedded devices such as the Honeywell Tuxedo touch as these devices don't always support higher resolution video feeds!",
   "url": "https://github.com/jackrazors/hassio-addons/",
