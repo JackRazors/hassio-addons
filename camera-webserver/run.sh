@@ -33,7 +33,7 @@ for url in `cat $FEED_FILE | jq -r 'values[]'`
 do
 	count=$((count + 1))
 	echo "[INFO] Running: 'ffmpeg -loglevel error -rtsp_transport tcp -i \"$url\" -c:v copy \"http://localhost:8090/camera$count.ffm\"'"
-	nohup ffmpeg -loglevel error -rtsp_transport tcp -i "$url" -c:v copy "http://localhost:8090/camera$count.ffm" > nohup.ffmpeg.$count.out &
+	nohup run-one-constantly ffmpeg -loglevel error -rtsp_transport tcp -i "$url" -c:v copy "http://localhost:8090/camera$count.ffm" > nohup.ffmpeg.$count.out &
 done
 
 SERVICE="ffserver"
