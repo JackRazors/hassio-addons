@@ -14,4 +14,4 @@ WORKDIR /data
 
 ADD run.sh /run.sh
 
-#ENTRYPOINT ["/run.sh"]
+ENTRYPOINT ["/run.sh"]
