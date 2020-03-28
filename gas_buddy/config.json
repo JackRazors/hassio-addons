@@ -16,8 +16,7 @@
     "config": "gasbuddy.json",
   },
   "schema": {
-    "feed_file": "str",
-    "ffserver_conf": "str"
+    "config": "str"
   },
   "image": "jackrazors/ha-gas-buddy"
 }
