@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 import requests
 import sys
 import threading
@@ -6,7 +6,7 @@ import json
 import datetime
 import time
 from bs4 import BeautifulSoup
-from flask import Flask, jsonify
+from flask import Flask, jsonify, Response
 
 
 app = Flask(__name__)
@@ -34,24 +34,27 @@ def GrabPrices():
 		for i in soup.select('.GenericStationListItem__stationListItem___3Jmn4'):
 			price_col = i.select('.GenericStationListItem__price___3GpKP')
 			updated = i.select('.GenericStationListItem__priceContainer___YbVoO > div > .ReportedBy__postedTime___J5H9Z')
-			station_name = i.select('.GenericStationListItem__stationNameHeader___3qxdy > a')
+			company_name = i.select('.GenericStationListItem__stationNameHeader___3qxdy > a')
 			address_col = i.select('.GenericStationListItem__address___1VFQ3')
 
-			if not len(station_name) == 0:
-				s_station_name = station_name[0].text
+			if not len(company_name) == 0:
+				s_company_name = company_name[0].text
 
 				if not len(updated) == 0:
 					s_updated = updated[0].text
 
 				if not len(price_col) == 0:
-					s_price = price_col[0].text
+					try:
+						s_price = float(price_col[0].text.encode('ascii', 'ignore'))
+					except ValueError:
+						s_price = None
 
 				if not len(address_col) == 0:
 					s_address = address_col[0].text
 					s_station_address = s_address.split("\n")[0]
 
 				station = {
-					'station_name': s_station_name,
+					'company_name': s_company_name,
 					'price': s_price,
 					'address': s_address,
 					'updated': s_updated
